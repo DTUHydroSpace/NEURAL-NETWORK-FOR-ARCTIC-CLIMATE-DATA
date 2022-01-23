@@ -1,0 +1,17 @@
+area: "Beaufort Sea"
+model_type: "Salinity"
+model_name: "Salinity_model_beaufort_sea"
+batch_size: 100000
+gru_layers: 2
+linear_layers: [] # [gru_out, ..., gru_out] (gru_out is the number of predictions)
+dropout: 0
+epochs: 4000
+learning_rate: 0.5
+print_every: 10
+momentum: 0.8
+weight_decay: 0.0001
+T_0: 100  # Restart training every epochs
+T_mult: 1 # Multiply T_0 with T_mult after each epoch
+
+
+
