@@ -1,5 +1,5 @@
 # NEURAL NETWORK FOR ARCTIC CLIMATE DATA
-Readme comming soon.\
+Readme comming soon.
 
 External packages\
 pygeos\
