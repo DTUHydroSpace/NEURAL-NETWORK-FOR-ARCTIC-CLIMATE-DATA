@@ -1,6 +1,6 @@
 area: "Beaufort Sea"
 model_type: "Salinity"
-model_name: "Salinity_model_beaufort_sea"
+model_name: "Salinity_beaufort_sea_4000.pt"
 batch_size: 100000
 gru_layers: 2
 linear_layers: [] # [gru_out, ..., gru_out] (gru_out is the number of predictions)
