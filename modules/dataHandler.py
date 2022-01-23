@@ -392,7 +392,7 @@ def load_all(verbose: bool = True) -> Tuple[
     np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray
 ]:
     """ Loads all the data using hydra"""
-    with initialize(config_path="./config"):
+    with initialize(config_path="../config"):
         cfg = compose(config_name="setup")
     # Region
     if verbose:
@@ -405,10 +405,9 @@ def load_all(verbose: bool = True) -> Tuple[
     if verbose:
         print("TSProfiles [1/4]" + " "*10, end='\r')
     if cfg.LOAD_TS_PROFILE_BACKUP:
-        with open(cfg.BACKUP, 'rb') as handle:
-            ts_profiles = TSProfiles(**pickle.load(handle))
+        ts_profiles = load_tsprofiles(cfg.BACKUP)
     else:
-        ts_profiles = load_tsprofiles(cfg.TS_PROFILE_PATH)
+        ts_profiles = import_tsprofiles(cfg.TS_PROFILE_PATH, verbose, verbose)
     ts_profiles = clean_ts_profiles(ts_profiles)
 
     if cfg.SAVE_TS_PROFILE_BACKUP:

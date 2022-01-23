@@ -70,7 +70,7 @@ def process_data(
     scalers: List[scaling.Scaler]
     ) -> Tuple[List[scaling.Scaler], DataLoader, DataLoader, DataLoader]:
     """ Processes a specific region by scaling all the datasets and converting the dicts to dataloaders"""
-    with initialize(config_path="./config"):
+    with initialize(config_path="../config"):
         cfg = compose(config_name="experiment").experiment
 
     bathymetri_data = [bathymetri_lat, bathymetri_lon, bathymetri_topography]

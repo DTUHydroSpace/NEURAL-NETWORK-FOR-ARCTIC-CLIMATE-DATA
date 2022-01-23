@@ -87,7 +87,7 @@ class TSNet(torch.nn.Module):
             output = self(features.unsqueeze(1)).squeeze(1)
 
             # Padding and true value
-            remove_padding = ~np.isnan(y_true.cpu().numpy())
+            remove_padding = ~torch.isnan(y_true)
             y_true_non_padded = y_true[remove_padding]
             if not self.is_cuda():
                 y_true_non_padded = y_true_non_padded.cpu()
@@ -137,7 +137,7 @@ def print_epoch(train_loss: TrainingLoss, val_loss: ValidationLoss, total_epoch:
 
 def load_model(train_loader: DataLoader) -> TSNet:
     """ Create a model based on the dataloader and loads in a trained model"""
-    with initialize(config_path="./config"):
+    with initialize(config_path="../config"):
         cfg = compose(config_name="experiment").experiment
     features, labels = next(iter(train_loader))
 
@@ -170,7 +170,7 @@ def load_model(train_loader: DataLoader) -> TSNet:
 
 def setup_model(train_loader: DataLoader) -> TSNet:
     """ Create a model based on the dataloader and the settings in the config file."""
-    with initialize(config_path="./config"):
+    with initialize(config_path="../config"):
         cfg = compose(config_name="experiment").experiment
     features, labels = next(iter(train_loader))
 
@@ -198,7 +198,7 @@ def setup_model(train_loader: DataLoader) -> TSNet:
 
 def train_model(train_loader: DataLoader, val_loader: DataLoader) -> Tuple[List[TrainingLoss], List[ValidationLoss]]:
     """ Train chosen model based on setting in the config file"""
-    with initialize(config_path="./config"):
+    with initialize(config_path="../config"):
         cfg = compose(config_name="experiment").experiment
     model = setup_model(train_loader=train_loader)
 
