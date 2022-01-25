@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 from matplotlib import colors
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 import cartopy.feature as cfeature
+from shapely import geometry
 import numpy as np
 import torch
 from . import torch_util as torch_util
@@ -123,7 +124,9 @@ def plot_color_map(
         fig, ax = plt.subplots(figsize=(14,10))
 
     for land in lands.geometries():
-        print(type(land))
+        if isinstance(land, geometry.Polygon):
+            ax.plot(*land.exterior.xy, alpha=1, c='k')
+            continue
         for geom in land.geoms: # type: ignore
             ax.plot(*geom.exterior.xy, alpha=1, c='k')
     # Normalize colorbar
