@@ -1,5 +1,5 @@
-LOAD_TS_PROFILE_BACKUP: False
-SAVE_TS_PROFILE_BACKUP: True
+LOAD_TS_PROFILE_BACKUP: True
+SAVE_TS_PROFILE_BACKUP: False
 REGIONS_PATH: "data/regions.geojson"
 TS_PROFILE_PATH: "data/TSprofiles_intp.tar.gz"
 BCN_SMOS_PATH: "data/BCN_SMOS_18D.zip"

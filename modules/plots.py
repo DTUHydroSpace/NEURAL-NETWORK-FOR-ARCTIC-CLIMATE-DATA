@@ -123,6 +123,7 @@ def plot_color_map(
         fig, ax = plt.subplots(figsize=(14,10))
 
     for land in lands.geometries():
+        print(type(land))
         for geom in land.geoms: # type: ignore
             ax.plot(*geom.exterior.xy, alpha=1, c='k')
     # Normalize colorbar
