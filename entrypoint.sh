@@ -13,4 +13,4 @@ conda activate env
 set -euo pipefail
 
 # exec the final command:
-exec jupyter lab --ip=* --port=8888 --no-browser --notebook-dir=/app --allow-root
+exec jupyter lab --ip=* --port=8888 --no-browser --notebook-dir=/src --allow-root

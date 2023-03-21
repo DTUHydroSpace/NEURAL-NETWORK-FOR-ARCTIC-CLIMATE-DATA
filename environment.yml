@@ -8,3 +8,5 @@ dependencies:
   - pip
   - Cartopy
   - geopandas
+  - pip:
+    - -r requirements.txt
